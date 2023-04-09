@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Banka Uygulaması</title>
+        <style>
+            /* Renkler */
+            :root {
+                --bg-color: #f7f7f7;
+                --primary-color: #1abc9c;
+                --secondary-color: #e74c3c;
+                --text-color: #333;
+                --light-text-color: #aaa;
+                --border-color: #ddd;
+                --button-shadow: rgba(0, 0, 0, 0.1);
+            }
+
+            /* Genel stiller */
+            body {
+                font-family: 'Open Sans', sans-serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                margin: 0;
+                padding: 0;
+            }
+
+            /* Başlık */
+            h1 {
+                text-align: center;
+                font-weight: 600;
+                margin-top: 40px;
+                margin-bottom: 30px;
+            }
+
+            /* Ana kutu */
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 40px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 10px var(--button-shadow);
+                border: 1px solid var(--border-color);
+            }
+
+            /* Kullanıcı bilgileri kutusu */
+            .user-info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .username {
+                font-weight: 600;
+                font-size: 24px;
+            }
+
+            .balance {
+                font-size: 18px;
+                color: var(--light-text-color);
+            }
+
+            /* Butonlar */
+            button {
+                background-color: var(--primary-color);
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+                box-shadow: 0 2px 5px var(--button-shadow);
+            }
+
+            button:hover {
+                background-color: #16a085;
+                box-shadow: 0 4px 10px var(--button-shadow);
+            }
+
+            button:active {
+                transform: translateY(1px);
+                box-shadow: none;
+            }
+
+            .btn-group {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .btn-group button:not(:last-child) {
+                margin-right: 20px;
+            }
+
+            .btn-group button:last-child {
+                background-color: var(--secondary-color);
+                box-shadow: 0 2px 5px var(--button-shadow);
+            }
+
+            .btn-group button:last-child:hover {
+                background-color: #c0392b;
+                box-shadow: 0 4px 10px var(--button-shadow);
+            }
+
+            .btn-group button:last-child:active {
+                transform: translateY(1px);
+                box-shadow: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Banka Uygulaması</h1>
+            <div class="user-info">
+                <div class="username" th:text="${user.userName}"></div>
+                <div class="balance" th:text="'Bakiye: ' + ${user.balance}"></div>
+            </div>
+            <div class="btn-group">
+                <button onclick="location.href='/deposit'">Para Yatır</button>
+                <button onclick="location.href='/withdraw'">Para Çek</button>
+                <button onclick="location.href='/logout'">Çıkış Yap</button>
+            </div>
+
+        </div>
+    </body>
+</html>

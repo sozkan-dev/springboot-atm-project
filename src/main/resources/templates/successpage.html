@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>İşlem Tamamlandı</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      div {
+        background-color: #c7f2d8;
+        border: 1px solid #8ed9a9;
+        padding: 10px;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div th:if="${param.success}">
+      <p>İşlem Başarıyla Tamamlandı</p>
+    </div>
+
+  </body>
+</html>
